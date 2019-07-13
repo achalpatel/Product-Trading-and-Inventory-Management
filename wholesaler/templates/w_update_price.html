@@ -1,0 +1,30 @@
+{% extends "base_w.html" %}
+
+{% block content %}
+
+<div class="container">
+<h3>Update Price</h3>
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+<table class="table">
+  <tr>
+    <td>Product (pId={{pl1.pId.id}}, pListId={{pl1.id}})</td>
+    <td>{{pl1.pId}}</td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td>{{pl1.s_price}}</td>
+  </tr>
+  <tr>
+    <td>Update</td>
+    <td><input type="text" name="update_price" value=""></td>
+  </tr>
+<tr>
+  <td><input type="submit" value="Submit" class="btn btn-success"></td>
+</tr>
+</table>
+</form>
+  </div>
+
+{% endblock %}

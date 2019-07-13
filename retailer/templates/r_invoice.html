@@ -1,0 +1,43 @@
+{% extends 'base_r.html' %}
+{% block content %}
+  <div class="container">
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr>
+        <th>To : </th>
+        <td>{{t.b_uId}}</td>
+      </tr>
+      <tr>
+        <th>Seller : </th>
+        <td>{{t.s_uId}}</td>
+      </tr>
+      <tr>
+        <th>Product : </th>
+        <td>{{t.pListId}}</td>
+      </tr>
+      <tr>
+        <th>Date : </th>
+        <td>{{t.tDate}}</td>
+      </tr>
+    </table>
+
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr>
+        <th>Product</th><th>Price</th><th>Quantity</th><th>Total</th>
+      </tr>
+      <tr>
+        <td>{{t.pListId}}</td><td>{{t.price}}</td><td>{{t.tQty}}</td><td>{{total}}</td>
+      </tr>
+    </table>
+
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr>
+        <th>Product Numbers : </th>
+        <td>
+        {%for n in td%}
+        {{n.pNo}},
+        {%endfor%}
+        </td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base_trial.html' %}
+
+{% block content %}
+<div class="container">
+  <h3>Products</h3>
+  <table id="simple-table" class= "table table-borderless">
+    {% for pl in pl1 %}
+    <tr>
+      <td style='width:30%;text-align:left'>
+        <a href="/productListings_index/?pId={{pl.id}}">{%if pl.pimg %}<img src="{{pl.pimg.url}}" width='100%' height='100%'alt="">{%endif%}</a>
+      </td>
+      <td>
+        <table class="table table-borderless">
+          <tr>
+            <th><a href="/productListings_index/?pId={{pl.id}}">{{pl.pId}}</a></th><td></td><td></td><td></td>
+            <td style='text-align:right;'>Rs.{{pl.s_price}}</td>
+          </tr>
+          <tr>
+            <td>Seller - {{pl.uName}}</td><td></td><td></td><td></td>
+            <!-- <td style='text-align:right;'><a href="/productListings_index/?pId={{pl.id}}">Buy</a></td> -->
+          </tr>
+        </table>
+      </td>
+    </tr>
+    {%endfor%}
+  </table>
+
+  </div>
+  {% endblock %}
+<!--
+  <table id="simple-table" class= "table table-boarded table-hover">
+    <tr><th>Product id</th><th>Product</th><th>Category</th><th>SubCategory</th></tr>
+      {% for p1 in pro %}
+        <tr>
+            <td> <a href="/productListings_index/?pId={{p1.id}}">{{p1.id}} </a></td>
+            <td> {{p1.pName}}</td><td>{{p1.catId}}</td><td>{{p1.subCatId}}</td>
+        </tr>
+      {% endfor %}
+    </table> -->

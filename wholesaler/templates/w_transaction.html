@@ -1,0 +1,47 @@
+{% extends 'base_w.html' %}
+{% block content %}
+  <div class="container">
+    <h3>Transaction For:</h3>
+
+    <div class="row mb-4">
+      <div class="col-sm-4">
+        <div class="card">
+          <h5 class="card-header text-center">Items Purchased</h5>
+          <a href="/w/w_transaction/?type=b" class="btn btn-primary">Go</a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <h5 class="card-header text-center">Items Sold</h5>
+          <a href="/w/w_transaction/?type=s" class="btn btn-primary">Go</a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <h5 class="card-header text-center">All</h5>
+          <a href="/w/w_transaction/?type=all" class="btn btn-primary">Go</a>
+        </div>
+      </div>
+    </div>
+
+    {%if t%}
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr><th>Transaction id</th><th>Product</th><th>Seller</th>
+        <th>Buyer</th><th>Date</th><th>Price</th><th>Quantity</th>
+        <th>Stock Before</th>
+      </tr>
+    {% for t1 in t %}
+
+    <tr>
+      <td> {{t1.id}} </td>
+      <td><a href="/w/w_invoice/?tId={{t1.id}}">{{t1.pListId}}</a></td><td> {{t1.s_uId}}</td><td> {{t1.b_uId}}</td>
+      <td>{{t1.tDate}}</td> <td>{{t1.price}}</td> <td>{{t1.tQty}}</td>
+      <td>{{t1.stock_left}}</td>
+    </tr>
+
+    {% endfor %}
+      </table>
+    {%endif%}
+  </div>
+
+{% endblock %}

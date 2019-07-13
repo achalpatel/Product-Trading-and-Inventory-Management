@@ -1,0 +1,15 @@
+{% extends 'base_trial.html' %}
+{% block content %}
+  <div class="container">
+    <h3>Stock Detail</h3>
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr><th>StockDetail id</th><th>Stock</th><th>Product Number</th></tr>
+        {% for sd1 in sd %}
+          <tr>
+              <td> {{sd1.id}}</td>  <td> {{sd1.stId.id}}</td>   <td> {{sd1.pNo}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+
+  </div>
+{% endblock %}

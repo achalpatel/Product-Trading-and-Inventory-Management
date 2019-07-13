@@ -1,0 +1,50 @@
+{% extends 'base_r.html' %}
+{% block content %}
+<div class="container">
+  <h3>Product Detail</h3>
+  <table id="simple-table" class= "table table-borderless">
+    {% for pl in pl1 %}
+    <tr>
+      <td style='width:30%;text-align:left;'>{%if pl.pimg %}<img src="{{pl.pimg.url}}" width='100%' height='100%'alt="">{%endif%}</td>
+      <td>
+        <table class="table table-borderless">
+          <tr>
+            <th>{{pl.pId}}</th>
+            <td style='text-align:right;'>Rs.{{pl.s_price}}</td>
+          </tr>
+          <tr>
+            <td>Seller - {{pl.uName}}</td>
+            <td style='text-align:right;'>Quantity available - {{pl.qty }}</td>
+          </tr>
+          <tr>
+            <td>Description - {{pl.pdDescription}}</td>
+            <td style='text-align:right;'><a href="/r/r_buy_product/?pl={{pl.id}}" class="btn btn-primary">Buy</a></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    {%endfor%}
+  </table>
+
+</div>
+{% endblock %}
+  <!-- <div class="container">
+    <h3>Product Detail</h3>
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr><th>Product</th><th>User</th><th>Price</th><th>Quantity</th><th>Manufacturer</th><th>Decription</th><th>Image</th><th></th></tr>
+        {% for pl1 in pl %}
+          <tr>
+              <td> {{pl1.id}}</td><td>{{pl1.uName}}</td><td>{{pl1.s_price}}</td><td>{{pl1.qty}}</td>
+              <td>{{pl1.manuName}}</td><td>{{pl1.pdDescription}}</td>
+              <td>
+                {% if pl1.pimg %}
+                  <img src="{{pl1.pimg.url}}" height='50' width='50'>
+                {%endif%}
+              </td>
+              <td><a href="/r/r_buy_product/?pl={{pl1.id}}"><button class = "btn btn-primary">Buy</button></a></td>
+
+          </tr>
+        {% endfor %}
+      </table>
+
+  </div> -->

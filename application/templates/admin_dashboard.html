@@ -1,0 +1,31 @@
+{% extends 'base_trial.html'%}
+
+{%block content%}
+<div class="container">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <h5 class="card-header text-center">Products</h5>
+      <a href="/product_index/" class="btn btn-primary">Go</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <h5 class="card-header text-center">Stocks</h5>
+      <a href="/stock_index/" class="btn btn-primary">Go</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <h5 class="card-header text-center">Transactions</h5>
+      <a href="/transaction/" class="btn btn-primary">Go</a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- <h3 class='col-md-8'><a href="/product_index/">Product</a></h3>
+<h3 class='col-md-8'><a href="/stock_index/">Stocks</a></h3>
+<h3 class='col-md-8'><a href="/transaction/">Transactions</a></h3> -->
+{%endblock%}

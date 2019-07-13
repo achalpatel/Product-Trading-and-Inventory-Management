@@ -1,0 +1,33 @@
+{% extends "base_r.html" %}
+
+{% block content %}
+
+<div class="container">
+  <h3>Sell Product</h3>
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+<table class="table">
+  <tr>
+    <td>Product</td>
+    <td>{{pl.pId}}</td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td>
+      <input type="text" name="price">
+      (Bought @ {{pl.s_price}})
+    </td>
+  </tr>
+  <tr>
+    <td>Quantity(Must be less than or equal to {{s.sQty}})</td>
+    <td><input type="text" name="tQty"></td>
+  </tr>
+  <tr>
+    <td><input type="submit" value="Sell" class="btn btn-danger"></td>
+  </tr>
+</table>
+</form>
+</div>
+
+{% endblock %}

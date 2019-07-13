@@ -1,0 +1,25 @@
+{%extends 'base_r.html'%}
+
+{% block content %}
+<table id="simple-table" class= "table table-borderless">
+  {% for pl in pl1 %}
+  {% if pl.qty > 0 %}
+  <tr>
+    <td style='width:30%;text-align:left'><a href="/r/r_productListings/?pId={{pl.id}}">{%if pl.pimg %}<img src="{{pl.pimg.url}}" width='300' height='200'alt="">{%endif%}</a></td>
+    <td>
+      <table class="table table-borderless">
+        <tr>
+          <th><a href="/r/r_productListings/?pId={{pl.id}}">{{pl.pId}} (Quantity - {{pl.qty}})</a></th><td></td><td></td><td></td>
+          <td style='text-align:right;'>Rs.{{pl.s_price}}</td>
+        </tr>
+        <tr>
+          <td>Seller - {{pl.uName}}</td><td></td><td></td><td></td>
+          <td style='text-align:right;'><a href="/r/r_productListings/?pId={{pl.id}}" class='btn btn-primary'>Buy</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  {% endif %}
+  {%endfor%}
+</table>
+{%endblock%}

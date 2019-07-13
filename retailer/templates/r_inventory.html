@@ -1,0 +1,20 @@
+{% extends 'base_r.html' %}
+{% block content %}
+
+  <div class="container">
+    <h3>Inventory</h3>
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr><th>Stock ID</th><th>User Name</th><th>Product</th><th>Quantity</th></tr>
+    {% for s1 in s %}
+
+    <tr>
+      <td><a href="/r/r_stockDetail/?stId={{s1.id}}"> {{s1.id}} </a></td>
+      <td> {{s1.uName}}</td>   <td> {{s1.pListId}}</td>  <td>{{s1.sQty}}</td>
+      <td><a href="/r/r_sell_product_index/?stId={{s1.id}}"><button class = "btn btn-primary">Sell</button></a></td>
+    </tr>
+
+    {% endfor %}
+      </table>
+
+  </div>
+{% endblock %}

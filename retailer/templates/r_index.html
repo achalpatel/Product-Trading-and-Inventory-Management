@@ -1,0 +1,113 @@
+{% extends 'base_r.html'%}
+
+{%block content%}
+<head>
+  <style>
+.vl {
+  border-left: 2px solid grey;
+  height: 600px;
+}
+</style>
+</head>
+
+<div class="container">
+  <div class="sidebar float-right col-2 clearfix">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <div class="card" style="width:18rem;">
+
+          <a href="/r/r_product_index/" class="btn btn-primary">Products</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="card">
+          <a href="/r/r_inventory/" class="btn btn-primary">My Inventory</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="card">
+          <a href="/r/r_transaction/" class="btn btn-primary">Transactions</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="col-10">
+    <h3 style="text-align:center;">Welcome</h3>
+    <table class="table table-borderless">
+      {% for c1 in c %}
+      <tr>
+        <th>{{c1.catName}}</th>
+        {% for s in sc %}
+          {% if s.catId.id == c1.id %}
+            <td>
+              <div class="card" style="width:18rem;">
+                <a href="/r/r_subcat/?sid={{s.id}}">
+                <h5 class="card-header text-center">
+                  {% if s.subCatImg %}<img src="{{s.subCatImg.url}}" width="200" height="200" alt="">{%endif%}
+                </h5>
+                </a>
+                <a href="/r/r_subcat/?sid={{s.id}}" class="btn btn-primary">{{s.subCatName}}</a>
+              </div>
+
+            </td>
+          {%endif%}
+        {%endfor%}
+      </tr>
+      {%endfor%}
+    </table>
+    <hr>
+    <h3>Recently Added</h3>
+    <a href="/r/r_product_index/">See more products</a>
+
+    <table class="table table-borderless">
+      <tr>
+      {% for pr in pro %}
+          <td>
+            <div class="card" style="width:18rem;">
+              <a href="/r/r_productListings/?pId={{pr.id}}">
+              <h5 class="card-header text-center">
+                {%if pr.pimg %}<img src="{{pr.pimg.url}}" width='200' height='200'alt="">{%endif%}
+              </h5>
+              </a>
+              <a href="/r/r_productListings/?pId={{pr.id}}" class="btn btn-primary">{{pr.pId}} - Rs.{{pr.s_price}}</a>
+            </div>
+          </td>
+      {%endfor%}
+      </tr>
+    </table>
+  </div>
+
+
+
+</div>
+{%endblock%}
+
+<!--
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <h5 class="card-header text-center">Products</h5>
+      <a href="/r/r_product_index/" class="btn btn-primary">Go</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <h5 class="card-header text-center">My Inventory</h5>
+      <a href="/r/r_inventory/" class="btn btn-primary">Go</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <h5 class="card-header text-center">Transactions</h5>
+      <a href="/r/r_transaction/" class="btn btn-primary">Go</a>
+    </div>
+  </div>
+</div>
+</div>
+<!-- <h3 class='col-md-8'><a href="/r/r_product_index/">Products</a></h3>
+<h3 class='col-md-8'><a href="/r/r_inventory/">My Inventory</a></h3>
+<h3 class='col-md-8'><a href="/r/r_transaction/">Transactions</a></h3> -->

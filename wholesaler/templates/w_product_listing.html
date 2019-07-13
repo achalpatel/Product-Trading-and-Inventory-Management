@@ -1,0 +1,24 @@
+{% extends 'base_w.html' %}
+
+{% block content %}
+<div class="container">
+  <h3>Your Listings</h3>
+  <table id="simple-table" class= "table table-boarded table-hover">
+    <tr><th>ProductList Id</th><th>Product</th><th>User</th><th>Price</th><th>Quantity</th><th>Manufacturer</th><th>Decription</th><th>Image</th></tr>
+      {% for pl1 in pl %}
+        <tr>
+            <td> {{pl1.id}}</td><td>{{pl1.pId.pName}}</td><td>{{pl1.uName}}</td><td>{{pl1.s_price}}</td><td>{{pl1.qty}}</td>
+            <td>{{pl1.manuName}}</td><td>{{pl1.pdDescription}}</td>
+            <td>
+              {% if pl1.pimg %}
+                <img src="{{pl1.pimg.url}}" height='50' width='50'>
+              {%endif%}
+            </td>
+            <td><a href="/w/w_add_quantity/?pl={{pl1.id}}">Add Quantity</a></td>
+            <td><a href="/w/w_update_price/?pl={{pl1.id}}">Update Price</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+
+</div>
+{% endblock %}

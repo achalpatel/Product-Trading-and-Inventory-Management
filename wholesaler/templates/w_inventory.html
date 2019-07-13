@@ -1,0 +1,18 @@
+{% extends 'base_w.html' %}
+{% block content %}
+  <div class="container">
+    <h3>Inventory</h3>
+    <table id="simple-table" class= "table table-boarded table-hover">
+      <tr><th>Stock ID</th><th>User Name</th><th>Product</th><th>Quantity</th><th></th></tr>
+    {% for s1 in s %}
+
+    <tr>
+      <td><a href="/w/w_stockDetail/?stId={{s1.id}}"> {{s1.id}} </a></td>
+      <td> {{s1.uName}}</td>   <td> {{s1.pListId}}</td>  <td>{{s1.sQty}}</td>
+
+    </tr>
+
+    {% endfor %}
+      </table>
+  </div>
+{% endblock %}

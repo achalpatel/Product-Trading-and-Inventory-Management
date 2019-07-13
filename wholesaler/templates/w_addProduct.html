@@ -1,0 +1,25 @@
+{% extends "base_w.html" %}
+
+{% block content %}
+
+<div class="container">
+<h3>Add New Product</h3>
+<h2>{{pl1}}</h2>
+<h2>{{pl2}}</h2>
+<h2>{{pl3}}</h2>
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+<table class="table">
+  {{form1.as_table}}
+  {{form2.as_table}}
+  {{form3.as_table}}
+
+<tr>
+  <td><input type="submit" value="Create" class="btn btn-success"></td>
+</tr>
+</table>
+</form>
+  </div>
+
+{% endblock %}
